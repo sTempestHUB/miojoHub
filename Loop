@@ -25,7 +25,7 @@ function module:Connect(Time, Function)
 	return CreateLoop
 end
 
-function module:DisconnectAll()
+local function DisconnectAll()
 	for _, Loop in module.Storage do
 		Loop:Disconnect()
 	end
@@ -34,7 +34,7 @@ end
 coroutine.wrap(function()
 	while task.wait() do
 		if _G.MiojoHubUnloaded then
-			task.spawn(module:DisconnectAll)
+			task.spawn(DisconnectAll)
 			break
 		end
 		for posIndex, LoopTable in next, module.Storage do
