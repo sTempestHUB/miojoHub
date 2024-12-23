@@ -34,7 +34,7 @@ end
 coroutine.wrap(function()
 	while task.wait() do
 		if _G.MiojoHubUnloaded then
-			task.spawn(module:DisconnectAll())
+			task.spawn(module:DisconnectAll)
 			break
 		end
 		for posIndex, LoopTable in next, module.Storage do
